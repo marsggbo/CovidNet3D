@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python search.py --config_file ./configs/search_ct.yaml --config_name CTConfig model.name Mobile3DNet dataset.name CTDataset trainer.name OnehotTrainer dataset.batch_size 2 dataset.workers 1 trainer.device_ids [0]

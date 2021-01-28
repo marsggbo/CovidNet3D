@@ -1,0 +1,198 @@
+VERSION: 1
+abtfs:
+    blur:
+        enable: 0
+    bright:
+        enable: 1
+    channel_dropout:
+        drop_range: (1, 1)
+        enable: 0
+        fill_value: 127
+    channel_shuffle:
+        enable: 0
+    cutout:
+        enable: 1
+        fill_value: 127
+        num_holes: 10
+        size: 20
+    distortion:
+        enable: 0
+    hue:
+        enable: 0
+    noise:
+        enable: 1
+    random_grid_shuffle:
+        enable: 0
+        grid: 2
+    rotate:
+        enable: 1
+callback:
+    checkpoint:
+        mode: 'max'
+comment: ''
+dataset:
+    batch_size: 32
+    datapath: '/home/datasets/MosMedData/COVID19_1110/studies'
+    name: 'CTDataset'
+    slice_num: 32 
+    is_train: False
+    is_3d: True
+    is_color: False
+    testlist: './datasets/mosmed/nii_test.json'
+    trainlist: './datasets/mosmed/nii_train.json'
+    validlist: './datasets/mosmed/nii_test.json'
+    workers: 20
+debug: False
+evaluator:
+    name: 'DefaultEvaluator'
+    num_epochs: 200
+input:
+    size: (64, 64)
+kd:
+    enable: 0
+    loss:
+        alpha: 0.5
+        temperature: 2
+    model:
+        name: 'Nasnetamobile'
+        path: 'teacher_net.pt'
+label_transforms:
+    name: 'default'
+loss:
+    CrossEntropy:
+        class_weight: []
+    MultiScaleLoss:
+        downscale: 1
+        mask: False
+        sub_loss: 'L1'
+        weights: [0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005]
+    label_smoothing: 0.1
+    name: 'CrossEntropy'
+mixup:
+    alpha: 0.4
+    enable: 0
+model:
+    aux_weight: 0.4
+    bn_param: (0.1, 0.001)
+    classes: 2
+    depth: 5
+    dropout: 0
+    dropout_rate: 0.5
+    expansion: 2
+    finetune: False
+    in_channels: 1
+    max_disp: 40
+    n_cell_stages: [4, 4, 4, 4, 4, 1]
+    name: 'Mobile3DNet'
+    num_layers: 4
+    num_nodes: 5
+    out_channels: 32
+    resume_path: ''
+    stride_stages: [2, 2, 2, 1, 2, 1]
+    use_aux_heads: True
+    width_mult: 1
+    width_stages: [32, 64, 128, 256, 512, 1024]
+mutator:
+    OnehotMutator:
+        arc_lr: 0.0003
+        unrolled: False
+    name: 'OnehotMutator'
+optim:
+    base_lr: 0.001
+    momentum: 0.9
+    name: 'adam'
+    scheduler:
+        gamma: 0.1
+        milestones: [10, 25, 35, 50]
+        mode: 'min'
+        name: 'CosineAnnealingLR'
+        patience: 10
+        step_size: 10
+        t_0: 5
+        t_max: 80
+        t_mul: 20
+        verbose: True
+    weight_decay: 0.0005
+output_root: './outputs'
+trainer:
+    accumulate_steps: 1
+    device: 'cuda'
+    device_ids: [0]
+    name: 'OnehotTrainer'
+    num_epochs: 100
+    startEpoch: 0
+    startRound: 0
+    validate_always: False
+    warm_start_epoch: 0
+transforms:
+    ct:
+        randomaffine:
+            degrees: (-10, 10)
+            enable: 0
+            isotropic: True
+            p: 0.5
+            scales: (0.5, 0.5)
+        randomblur:
+            enable: 0
+            p: 0.5
+            std: (0, 4)
+        randomelasticdeformation:
+            enable: 0
+            locked_borders: 0
+            max_displacement: (7, 7, 7)
+            num_control_points: (4, 4, 4)
+            p: 0.5
+        randomflip:
+            axes: (0, 1, 2)
+            enable: 1
+            flip_probability: 0.5
+            p: 0.5
+        randomnoise:
+            enable: 0
+            mean: (0, 0.25)
+            p: 0.5
+            std: (0, 0.25)
+        randomswap:
+            enable: 0
+            num_iterations: 100
+            p: 0.5
+            patch_size: (16, 16, 16)
+    img:
+        aug_cifar: False
+        aug_imagenet: False
+        center_crop:
+            enable: 0
+        color_jitter:
+            brightness: 0.0
+            contrast: 0.0
+            enable: 0
+            hue: 0.0
+            saturation: 0.0
+        random_crop:
+            enable: 1
+            padding: 0
+        random_horizontal_flip:
+            enable: 1
+            p: 0.5
+        random_resized_crop:
+            enable: 0
+            ratio: (0.75, 1.3333333333333333)
+            scale: (0.5, 1.0)
+        random_rotation:
+            degrees: 10
+            enable: 1
+        random_vertical_flip:
+            enable: 1
+            p: 0.5
+        resize:
+            enable: 1
+    name: 'CTTransforms'
+    tensor:
+        normalization:
+            mean: [0.6075, 0.4564, 0.4182]
+            std: [0.2158, 0.1871, 0.1826]
+        random_erasing:
+            enable: 0
+            p: 0.5
+            ratio: ((0.3, 3.3),)
+            scale: (0.02, 0.3)
