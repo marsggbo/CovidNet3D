@@ -4,10 +4,10 @@
 Accepted in AAAI-2021.
 
 ```bib
-@article{he2021automated,
-  title={Automated Model Design and Benchmarking of 3D Deep Learning Models for COVID-19 Detection with Chest CT Scans},
-  author={He, Xin and Wang, Shihao and Chu, Xiaowen and Shi, Shaohuai and Tang, Jiangping and Liu, Xin and Yan, Chenggang and Zhang, Jiyong and Ding, Guiguang},
-  journal={arXiv preprint arXiv:2101.05442},
+@article{He2021CovidNet3D, 
+  title={Automated Model Design and Benchmarking of 3D Deep Learning Models for COVID-19 Detection with Chest CT Scans}, 
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+  author={He, Xin and Wang, Shihao and Chu, Xiaowen and Shi, Shaohuai and Tang, Jiangping and Liu, Xin and Yan, Chenggang and Zhang, Jiyong and Ding, Guiguang}, 
   year={2021}
 }
 ```
