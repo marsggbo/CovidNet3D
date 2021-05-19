@@ -18,6 +18,89 @@ Accepted in AAAI-2021.
 pip install -r requirements.txt
 ```
 
+# Datasets
+
+
+- **CC-CCII**: Zhang, K., Liu, X., Shen, J., Li, Z., Sang, Y., Wu, X., Zha, Y., Liang, W., Wang, C., Wang, K., et al.: Clinically applicable AI system for accurate diagnosis, quan-
+titative measurements, and prognosis of covid-19 pneumonia using computed tomography. Cell (2020)
+- **MosMed**: Morozov, S., Andreychenko, A., Pavlov, N., Vladzymyrskyy, A., Ledikhova, N., Gombolevskiy, V., Blokhin, I., Gelezhe, P., Gonchar, A., Chernina, V., Babkin, V.: Mosmeddata: Chest ct scans with covid-19 related findings. medRxiv (2020)
+- **COVID-CTset**: Rahimzadeh, M., Attar, A., Sakhaei, S.M.: A fully automated deep learning-based network for detecting covid-19 from a new and large lung ct scan dataset. medRxiv
+(2020)
+
+**Statistics**
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky" rowspan="2">Dataset</th>
+    <th class="tg-0pky" rowspan="2">Class</th>
+    <th class="tg-0pky" colspan="2">#Patients</th>
+    <th class="tg-0pky" colspan="2">#Scans</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Train</td>
+    <td class="tg-0pky">Test</td>
+    <td class="tg-0pky">Train</td>
+    <td class="tg-0lax">Test</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow" rowspan="3">CC-CCII</td>
+    <td class="tg-0pky">NCP</td>
+    <td class="tg-0pky">726</td>
+    <td class="tg-0pky">190</td>
+    <td class="tg-0pky">1213</td>
+    <td class="tg-0lax">302</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CP</td>
+    <td class="tg-0lax">778</td>
+    <td class="tg-0lax">186</td>
+    <td class="tg-0lax">1210</td>
+    <td class="tg-0lax">303</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Normal</td>
+    <td class="tg-0lax">660</td>
+    <td class="tg-0lax">158</td>
+    <td class="tg-0lax">772</td>
+    <td class="tg-0lax">193</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="2">MosMed</td>
+    <td class="tg-0lax">NCP</td>
+    <td class="tg-0lax">604</td>
+    <td class="tg-0lax">255</td>
+    <td class="tg-0lax">601</td>
+    <td class="tg-0lax">255</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Normal</td>
+    <td class="tg-0lax">178</td>
+    <td class="tg-0lax">76</td>
+    <td class="tg-0lax">178</td>
+    <td class="tg-0lax">76</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="2">COVID-CTset</td>
+    <td class="tg-0lax">NCP</td>
+    <td class="tg-0lax">202</td>
+    <td class="tg-0lax">42</td>
+    <td class="tg-0lax">202</td>
+    <td class="tg-0lax">42</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Normal</td>
+    <td class="tg-0pky">200</td>
+    <td class="tg-0pky">82</td>
+    <td class="tg-0pky">200</td>
+    <td class="tg-0lax">82</td>
+  </tr>
+</tbody>
+</table>
+
+
 # search
 
 ```bash
