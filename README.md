@@ -1,5 +1,5 @@
 
-# Automated Model Design and Benchmarking of 3D Deep Learning Models for COVID-19 Detection with Chest CT Scans
+# [AAAI2021] Automated Model Design and Benchmarking of 3D Deep Learning Models for COVID-19 Detection with Chest CT Scans
 
 Accepted in AAAI-2021.
 
